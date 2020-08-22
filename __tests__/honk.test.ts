@@ -45,12 +45,12 @@ describe('honk action', () => {
 
     // Delete comment
     nock('https://api.github.com')
-      .delete('/repos/example/repository/issues/comments/1')
+      .delete('/repos/example/repository/issues/comments/1/x')
       .reply(200, {})
 
     // Honk
     nock('https://api.github.com')
-      .post(`/repos/example/repository/issues/1/comments`, body => {
+      .post(`/repos/example/repository/issues/1/comments/x`, body => {
         return (
           body.body ===
           '![honk](https://user-images.githubusercontent.com/4064/65900857-cf462f80-e36b-11e9-9a9c-76170c99618b.png)'
